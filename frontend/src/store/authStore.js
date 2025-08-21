@@ -64,3 +64,5 @@ export const userInitialsSelector = selector({
     return `${user.firstName.charAt(0)}${user.lastName.charAt(0)}`.toUpperCase()
   },
 })
+
+// Este selector se movió a cartStore.js

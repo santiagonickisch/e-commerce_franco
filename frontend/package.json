@@ -10,7 +10,7 @@
     "lint": "eslint . --ext js,jsx,ts,tsx --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "eslint . --ext js,jsx,ts,tsx --fix",
     "test": "vitest",
-    "test:ui": "vitest --ui",
+    "test:ui": "vitest --ui --reporter=@vitest/ui",
     "test:coverage": "vitest --coverage"
   },
   "dependencies": {
@@ -66,7 +66,7 @@
     "typescript": "^5.2.2",
     "vite": "^5.0.0",
     "vitest": "^1.0.0",
-    "vitest-ui": "^1.0.0"
+    "@vitest/ui": "^1.0.0"
   },
   "engines": {
     "node": ">=18.0.0"

@@ -5,9 +5,9 @@ import { ShoppingCart, Menu, X, User, LogOut, Settings } from 'lucide-react'
 import { 
   userState, 
   isAuthenticatedState, 
-  cartItemsCountSelector,
   isAdminSelector 
 } from '@/store/authStore'
+import { cartItemsCountSelector } from '@/store/cartStore'
 import { cn } from '@/utils/cn'
 import Button from './ui/Button'
 

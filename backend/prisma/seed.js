@@ -90,10 +90,8 @@ async function main() {
   // Crear productos de ejemplo
   console.log('📦 Creando productos...');
   const products = await Promise.all([
-    prisma.product.upsert({
-      where: { name: 'iPhone 15 Pro' },
-      update: {},
-      create: {
+    prisma.product.create({
+      data: {
         name: 'iPhone 15 Pro',
         description: 'El último iPhone con características avanzadas, cámara profesional y rendimiento excepcional.',
         price: 999.99,
@@ -105,10 +103,8 @@ async function main() {
         ]
       }
     }),
-    prisma.product.upsert({
-      where: { name: 'MacBook Air M2' },
-      update: {},
-      create: {
+    prisma.product.create({
+      data: {
         name: 'MacBook Air M2',
         description: 'Laptop ultraligera con chip M2, perfecta para trabajo y creatividad.',
         price: 1199.99,
@@ -120,10 +116,8 @@ async function main() {
         ]
       }
     }),
-    prisma.product.upsert({
-      where: { name: 'Camiseta Básica' },
-      update: {},
-      create: {
+    prisma.product.create({
+      data: {
         name: 'Camiseta Básica',
         description: 'Camiseta de algodón 100% orgánico, cómoda y duradera.',
         price: 29.99,
@@ -135,10 +129,8 @@ async function main() {
         ]
       }
     }),
-    prisma.product.upsert({
-      where: { name: 'Jeans Clásicos' },
-      update: {},
-      create: {
+    prisma.product.create({
+      data: {
         name: 'Jeans Clásicos',
         description: 'Jeans de alta calidad con ajuste perfecto y durabilidad excepcional.',
         price: 79.99,
@@ -150,10 +142,8 @@ async function main() {
         ]
       }
     }),
-    prisma.product.upsert({
-      where: { name: 'Lámpara de Mesa' },
-      update: {},
-      create: {
+    prisma.product.create({
+      data: {
         name: 'Lámpara de Mesa',
         description: 'Lámpara LED moderna con diseño minimalista, perfecta para escritorio.',
         price: 89.99,
@@ -165,10 +155,8 @@ async function main() {
         ]
       }
     }),
-    prisma.product.upsert({
-      where: { name: 'Pelota de Fútbol' },
-      update: {},
-      create: {
+    prisma.product.create({
+      data: {
         name: 'Pelota de Fútbol',
         description: 'Pelota oficial de competición con tecnología avanzada para máximo rendimiento.',
         price: 49.99,
@@ -180,10 +168,8 @@ async function main() {
         ]
       }
     }),
-    prisma.product.upsert({
-      where: { name: 'El Señor de los Anillos' },
-      update: {},
-      create: {
+    prisma.product.create({
+      data: {
         name: 'El Señor de los Anillos',
         description: 'Trilogía completa de J.R.R. Tolkien en edición de lujo con ilustraciones.',
         price: 39.99,
@@ -195,10 +181,8 @@ async function main() {
         ]
       }
     }),
-    prisma.product.upsert({
-      where: { name: 'Auriculares Inalámbricos' },
-      update: {},
-      create: {
+    prisma.product.create({
+      data: {
         name: 'Auriculares Inalámbricos',
         description: 'Auriculares con cancelación de ruido activa y batería de larga duración.',
         price: 199.99,
