@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useRecoilValue } from 'recoil'
 import { userState } from '@/store/authStore'
-import { User, Mail, Phone, MapPin, Edit, Save, X } from 'lucide-react'
+import { User, Mail, Phone, MapPin, Edit, Save, X, Shield, Bell, Lock } from 'lucide-react'
 import { Card } from '@/components/ui/Card'
 import Button from '@/components/ui/Button'
 import Input from '@/components/ui/Input'
@@ -46,161 +46,226 @@ const Profile = () => {
   }
 
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      {/* Header */}
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Mi Perfil</h1>
-        <p className="text-gray-600">Gestiona tu información personal y preferencias</p>
-      </div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* Información del perfil */}
-        <div className="lg:col-span-2">
-          <Card>
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-xl font-semibold text-gray-900">Información personal</h2>
-              {!isEditing ? (
-                <Button
-                  variant="outline"
-                  onClick={() => setIsEditing(true)}
-                  className="flex items-center gap-2"
-                >
-                  <Edit className="w-4 h-4" />
-                  Editar
-                </Button>
-              ) : (
-                <div className="flex gap-2">
-                  <Button
-                    variant="outline"
-                    onClick={handleCancel}
-                    className="flex items-center gap-2"
-                  >
-                    <X className="w-4 h-4" />
-                    Cancelar
-                  </Button>
-                  <Button
-                    onClick={handleSave}
-                    className="flex items-center gap-2"
-                  >
-                    <Save className="w-4 h-4" />
-                    Guardar
-                  </Button>
-                </div>
-              )}
-            </div>
-
-            <div className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <Input
-                  label="Nombre"
-                  name="firstName"
-                  value={formData.firstName}
-                  onChange={handleInputChange}
-                  disabled={!isEditing}
-                  icon={<User className="w-5 h-5" />}
-                />
-                <Input
-                  label="Apellidos"
-                  name="lastName"
-                  value={formData.lastName}
-                  onChange={handleInputChange}
-                  disabled={!isEditing}
-                  icon={<User className="w-5 h-5" />}
-                />
-              </div>
-
-              <Input
-                label="Email"
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleInputChange}
-                disabled={!isEditing}
-                icon={<Mail className="w-5 h-5" />}
-              />
-
-              <Input
-                label="Teléfono"
-                name="phone"
-                value={formData.phone}
-                onChange={handleInputChange}
-                disabled={!isEditing}
-                icon={<Phone className="w-5 h-5" />}
-              />
-
-              <Input
-                label="Dirección"
-                name="address"
-                value={formData.address}
-                onChange={handleInputChange}
-                disabled={!isEditing}
-                icon={<MapPin className="w-5 h-5" />}
-              />
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <Input
-                  label="Ciudad"
-                  name="city"
-                  value={formData.city}
-                  onChange={handleInputChange}
-                  disabled={!isEditing}
-                  icon={<MapPin className="w-5 h-5" />}
-                />
-                <Input
-                  label="Código postal"
-                  name="postalCode"
-                  value={formData.postalCode}
-                  onChange={handleInputChange}
-                  disabled={!isEditing}
-                  icon={<MapPin className="w-5 h-5" />}
-                />
-              </div>
-            </div>
-          </Card>
+    <div className="min-h-screen bg-elegant-black gold-particles">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Header */}
+        <div className="mb-12 text-center">
+          <div className="w-24 h-24 bg-gold-500/20 rounded-full flex items-center justify-center mx-auto mb-6 gold-glow">
+            <User className="w-12 h-12 text-gold-400" />
+          </div>
+          <h1 className="text-5xl font-bold text-white mb-4 logo-elegant">Mi Perfil</h1>
+          <p className="text-gold-400 text-xl">Gestiona tu información personal y preferencias</p>
         </div>
 
-        {/* Sidebar */}
-        <div className="lg:col-span-1">
-          <Card>
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Información de la cuenta</h3>
-            <div className="space-y-4">
-              <div>
-                <p className="text-sm text-gray-600">Rol</p>
-                <p className="font-medium">{user?.role === 'ADMIN' ? 'Administrador' : 'Cliente'}</p>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Información del perfil */}
+          <div className="lg:col-span-2">
+            <Card className="elegant-card gold-border">
+              <div className="flex justify-between items-center mb-8">
+                <h2 className="text-2xl font-semibold text-white logo-elegant">Información personal</h2>
+                {!isEditing ? (
+                  <Button
+                    variant="outline"
+                    onClick={() => setIsEditing(true)}
+                    className="flex items-center gap-2 elegant-button"
+                  >
+                    <Edit className="w-4 h-4" />
+                    Editar
+                  </Button>
+                ) : (
+                  <div className="flex gap-3">
+                    <Button
+                      variant="outline"
+                      onClick={handleCancel}
+                      className="flex items-center gap-2 border-gold-500 text-gold-400 hover:bg-gold-500 hover:text-black"
+                    >
+                      <X className="w-4 h-4" />
+                      Cancelar
+                    </Button>
+                    <Button
+                      onClick={handleSave}
+                      className="flex items-center gap-2 elegant-button"
+                    >
+                      <Save className="w-4 h-4" />
+                      Guardar
+                    </Button>
+                  </div>
+                )}
               </div>
-              <div>
-                <p className="text-sm text-gray-600">Miembro desde</p>
-                <p className="font-medium">
-                  {user?.createdAt ? new Date(user.createdAt).toLocaleDateString('es-ES') : 'N/A'}
-                </p>
-              </div>
-              <div>
-                <p className="text-sm text-gray-600">Estado</p>
-                <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                  user?.isActive 
-                    ? 'bg-green-100 text-green-800' 
-                    : 'bg-red-100 text-red-800'
-                }`}>
-                  {user?.isActive ? 'Activo' : 'Inactivo'}
-                </span>
-              </div>
-            </div>
-          </Card>
 
-          <Card className="mt-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Acciones rápidas</h3>
-            <div className="space-y-3">
-              <Button variant="outline" className="w-full justify-start">
-                Cambiar contraseña
-              </Button>
-              <Button variant="outline" className="w-full justify-start">
-                Configuración de notificaciones
-              </Button>
-              <Button variant="outline" className="w-full justify-start">
-                Preferencias de privacidad
-              </Button>
-            </div>
-          </Card>
+              <div className="space-y-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-gold-300 text-sm font-medium mb-2">Nombre</label>
+                    <div className="relative">
+                      <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gold-400 h-5 w-5" />
+                      <input
+                        type="text"
+                        name="firstName"
+                        value={formData.firstName}
+                        onChange={handleInputChange}
+                        disabled={!isEditing}
+                        className="w-full h-12 pl-12 pr-4 bg-elegant-gray border border-gold-500/30 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-gold-500 transition-all duration-300 disabled:opacity-50"
+                        placeholder="Tu nombre"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <label className="block text-gold-300 text-sm font-medium mb-2">Apellidos</label>
+                    <div className="relative">
+                      <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gold-400 h-5 w-5" />
+                      <input
+                        type="text"
+                        name="lastName"
+                        value={formData.lastName}
+                        onChange={handleInputChange}
+                        disabled={!isEditing}
+                        className="w-full h-12 pl-12 pr-4 bg-elegant-gray border border-gold-500/30 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-gold-500 transition-all duration-300 disabled:opacity-50"
+                        placeholder="Tus apellidos"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-gold-300 text-sm font-medium mb-2">Email</label>
+                  <div className="relative">
+                    <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gold-400 h-5 w-5" />
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      disabled={!isEditing}
+                      className="w-full h-12 pl-12 pr-4 bg-elegant-gray border border-gold-500/30 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-gold-500 transition-all duration-300 disabled:opacity-50"
+                      placeholder="tu@email.com"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-gold-300 text-sm font-medium mb-2">Teléfono</label>
+                  <div className="relative">
+                    <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gold-400 h-5 w-5" />
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      disabled={!isEditing}
+                      className="w-full h-12 pl-12 pr-4 bg-elegant-gray border border-gold-500/30 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-gold-500 transition-all duration-300 disabled:opacity-50"
+                      placeholder="+34 600 000 000"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-gold-300 text-sm font-medium mb-2">Dirección</label>
+                  <div className="relative">
+                    <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gold-400 h-5 w-5" />
+                    <input
+                      type="text"
+                      name="address"
+                      value={formData.address}
+                      onChange={handleInputChange}
+                      disabled={!isEditing}
+                      className="w-full h-12 pl-12 pr-4 bg-elegant-gray border border-gold-500/30 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-gold-500 transition-all duration-300 disabled:opacity-50"
+                      placeholder="Calle y número"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-gold-300 text-sm font-medium mb-2">Ciudad</label>
+                    <div className="relative">
+                      <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gold-400 h-5 w-5" />
+                      <input
+                        type="text"
+                        name="city"
+                        value={formData.city}
+                        onChange={handleInputChange}
+                        disabled={!isEditing}
+                        className="w-full h-12 pl-12 pr-4 bg-elegant-gray border border-gold-500/30 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-gold-500 transition-all duration-300 disabled:opacity-50"
+                        placeholder="Tu ciudad"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <label className="block text-gold-300 text-sm font-medium mb-2">Código postal</label>
+                    <div className="relative">
+                      <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gold-400 h-5 w-5" />
+                      <input
+                        type="text"
+                        name="postalCode"
+                        value={formData.postalCode}
+                        onChange={handleInputChange}
+                        disabled={!isEditing}
+                        className="w-full h-12 pl-12 pr-4 bg-elegant-gray border border-gold-500/30 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-gold-500 transition-all duration-300 disabled:opacity-50"
+                        placeholder="28001"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Card>
+          </div>
+
+          {/* Sidebar */}
+          <div className="lg:col-span-1 space-y-6">
+            <Card className="elegant-card gold-border">
+              <h3 className="text-xl font-semibold text-white mb-6 logo-elegant">Información de la cuenta</h3>
+              <div className="space-y-6">
+                <div className="flex items-center justify-between p-4 bg-elegant-gray rounded-lg">
+                  <div>
+                    <p className="text-sm text-gold-300">Rol</p>
+                    <p className="font-medium text-white">{user?.role === 'ADMIN' ? 'Administrador' : 'Cliente'}</p>
+                  </div>
+                  <div className="w-3 h-3 bg-gold-400 rounded-full"></div>
+                </div>
+                <div className="flex items-center justify-between p-4 bg-elegant-gray rounded-lg">
+                  <div>
+                    <p className="text-sm text-gold-300">Miembro desde</p>
+                    <p className="font-medium text-white">
+                      {user?.createdAt ? new Date(user.createdAt).toLocaleDateString('es-ES') : 'N/A'}
+                    </p>
+                  </div>
+                  <div className="w-3 h-3 bg-gold-400 rounded-full"></div>
+                </div>
+                <div className="flex items-center justify-between p-4 bg-elegant-gray rounded-lg">
+                  <div>
+                    <p className="text-sm text-gold-300">Estado</p>
+                    <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${
+                      user?.isActive 
+                        ? 'bg-gold-500/20 text-gold-400 border border-gold-500/30' 
+                        : 'bg-red-500/20 text-red-400 border border-red-500/30'
+                    }`}>
+                      {user?.isActive ? 'Activo' : 'Inactivo'}
+                    </span>
+                  </div>
+                  <div className={`w-3 h-3 rounded-full ${user?.isActive ? 'bg-gold-400' : 'bg-red-400'}`}></div>
+                </div>
+              </div>
+            </Card>
+
+            <Card className="elegant-card gold-border">
+              <h3 className="text-xl font-semibold text-white mb-6 logo-elegant">Acciones rápidas</h3>
+              <div className="space-y-4">
+                <Button variant="outline" className="w-full justify-start border-gold-500 text-gold-400 hover:bg-gold-500 hover:text-black transition-all duration-300">
+                  <Lock className="w-4 h-4 mr-2" />
+                  Cambiar contraseña
+                </Button>
+                <Button variant="outline" className="w-full justify-start border-gold-500 text-gold-400 hover:bg-gold-500 hover:text-black transition-all duration-300">
+                  <Bell className="w-4 h-4 mr-2" />
+                  Configuración de notificaciones
+                </Button>
+                <Button variant="outline" className="w-full justify-start border-gold-500 text-gold-400 hover:bg-gold-500 hover:text-black transition-all duration-300">
+                  <Shield className="w-4 h-4 mr-2" />
+                  Preferencias de privacidad
+                </Button>
+              </div>
+            </Card>
+          </div>
         </div>
       </div>
     </div>

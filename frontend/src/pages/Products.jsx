@@ -20,43 +20,88 @@ const Products = () => {
   const isAuthenticated = useRecoilValue(isAuthenticatedState)
   const setCart = useSetRecoilState(cartState)
 
-  // Datos de ejemplo - en producción esto vendría de una API
+  // Datos de ejemplo - productos estéticos de peluquería
   const mockProducts = [
     {
       id: 1,
-      name: 'iPhone 15 Pro',
-      description: 'El último iPhone con características avanzadas',
-      price: 999.99,
-      image: 'https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=500',
-      category: 'Electrónicos',
+      name: 'Aceite de Argán Premium',
+      description: 'Aceite nutritivo para cabello seco y dañado',
+      price: 45.99,
+      image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=500',
+      category: 'Aceite',
       stock: 50
     },
     {
       id: 2,
-      name: 'MacBook Air M2',
-      description: 'Laptop ultraligera con chip M2',
-      price: 1199.99,
-      image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=500',
-      category: 'Electrónicos',
+      name: 'Acondicionador Reparador',
+      description: 'Acondicionador profundo para cabello tratado',
+      price: 32.99,
+      image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=500',
+      category: 'Acondicionador',
       stock: 30
     },
     {
       id: 3,
-      name: 'Camiseta Básica',
-      description: 'Camiseta de algodón 100% orgánico',
-      price: 29.99,
-      image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500',
-      category: 'Ropa',
+      name: 'Aerosol Fijador Extra Fuerte',
+      description: 'Fijación duradera para peinados profesionales',
+      price: 28.99,
+      image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=500',
+      category: 'Aerosol',
       stock: 100
     },
     {
       id: 4,
-      name: 'Jeans Clásicos',
-      description: 'Jeans de alta calidad con ajuste perfecto',
-      price: 79.99,
-      image: 'https://images.unsplash.com/photo-1542272604-787c3835535d?w=500',
-      category: 'Ropa',
+      name: 'Cera Modeladora Natural',
+      description: 'Cera para peinados modernos y definidos',
+      price: 24.99,
+      image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=500',
+      category: 'Cera',
       stock: 75
+    },
+    {
+      id: 5,
+      name: 'Gel Ultra Hold',
+      description: 'Gel de máxima fijación para cabello rebelde',
+      price: 19.99,
+      image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=500',
+      category: 'Gel',
+      stock: 60
+    },
+    {
+      id: 6,
+      name: 'Máscara Hidratante',
+      description: 'Tratamiento intensivo para cabello maltratado',
+      price: 38.99,
+      image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=500',
+      category: 'Mascara',
+      stock: 40
+    },
+    {
+      id: 7,
+      name: 'Oxidante 20 Vol',
+      description: 'Oxidante profesional para decoloración',
+      price: 15.99,
+      image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=500',
+      category: 'Oxidantes',
+      stock: 80
+    },
+    {
+      id: 8,
+      name: 'Shampoo Purificante',
+      description: 'Limpieza profunda para cabello graso',
+      price: 26.99,
+      image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=500',
+      category: 'Shampoo',
+      stock: 90
+    },
+    {
+      id: 9,
+      name: 'Spray Termoprotector',
+      description: 'Protección térmica para planchas y secadores',
+      price: 22.99,
+      image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=500',
+      category: 'Spray',
+      stock: 65
     }
   ]
 
@@ -88,7 +133,7 @@ const Products = () => {
     }
   })
 
-  const categories = ['all', 'Electrónicos', 'Ropa', 'Hogar', 'Deportes', 'Libros']
+  const categories = ['all', 'Aceite', 'Acondicionador', 'Aerosol', 'Cera', 'Gel', 'Mascara', 'Oxidantes', 'Shampoo', 'Spray']
 
   const handleAddToCart = async (product) => {
     if (!isAuthenticated) {
@@ -124,101 +169,110 @@ const Products = () => {
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      {/* Header */}
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Productos</h1>
-        <p className="text-gray-600">Descubre nuestra amplia selección de productos</p>
-      </div>
-
-      {/* Filtros y búsqueda */}
-      <div className="bg-white rounded-lg shadow-sm border p-6 mb-8">
-        <div className="flex flex-col lg:flex-row gap-4">
-          {/* Búsqueda */}
-          <div className="flex-1">
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
-              <Input
-                type="text"
-                placeholder="Buscar productos..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10"
-              />
-            </div>
-          </div>
-
-          {/* Categorías */}
-          <div className="flex gap-2">
-            {categories.map((category) => (
-              <Button
-                key={category}
-                variant={selectedCategory === category ? 'default' : 'outline'}
-                size="sm"
-                onClick={() => setSelectedCategory(category)}
-              >
-                {category === 'all' ? 'Todas' : category}
-              </Button>
-            ))}
-          </div>
-
-          {/* Ordenamiento */}
-          <select
-            value={sortBy}
-            onChange={(e) => setSortBy(e.target.value)}
-            className="px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-          >
-            <option value="name">Ordenar por nombre</option>
-            <option value="price-low">Precio: menor a mayor</option>
-            <option value="price-high">Precio: mayor a menor</option>
-          </select>
-
-          {/* Vista */}
-          <div className="flex border border-gray-300 rounded-md">
-            <button
-              onClick={() => setViewMode('grid')}
-              className={`p-2 ${viewMode === 'grid' ? 'bg-primary text-white' : 'bg-white text-gray-600'}`}
-            >
-              <Grid className="h-5 w-5" />
-            </button>
-            <button
-              onClick={() => setViewMode('list')}
-              className={`p-2 ${viewMode === 'list' ? 'bg-primary text-white' : 'bg-white text-gray-600'}`}
-            >
-              <List className="h-5 w-5" />
-            </button>
-          </div>
+    <div className="min-h-screen bg-elegant-black gold-particles">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Header */}
+        <div className="mb-8">
+          <h1 className="text-4xl font-bold text-white mb-2 logo-elegant">Productos Estéticos</h1>
+          <p className="text-gold-400 text-lg">Descubre nuestra amplia selección de productos profesionales para peluquería</p>
         </div>
-      </div>
 
-      {/* Resultados */}
-      <div className="mb-4">
-        <p className="text-gray-600">
-          Mostrando {sortedProducts.length} de {products.length} productos
-        </p>
-      </div>
+                 {/* Filtros y búsqueda */}
+         <div className="elegant-card rounded-lg shadow-lg p-6 mb-8 gold-border">
+           <div className="flex flex-col gap-6">
+             {/* Primera fila: Búsqueda */}
+             <div className="w-full">
+               <div className="relative max-w-md">
+                 <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gold-400 h-6 w-6" />
+                 <input
+                   type="text"
+                   placeholder="Buscar productos..."
+                   value={searchTerm}
+                   onChange={(e) => setSearchTerm(e.target.value)}
+                   className="w-full h-16 pl-14 pr-6 bg-elegant-gray border border-gold-500/30 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-gold-500 transition-all duration-300 text-lg font-medium"
+                   style={{ color: 'white' }}
+                 />
+               </div>
+             </div>
+
+             {/* Segunda fila: Controles */}
+             <div className="flex flex-wrap items-center gap-4">
+               {/* Categorías */}
+               <div className="flex flex-wrap gap-2">
+                 {categories.map((category) => (
+                   <Button
+                     key={category}
+                     variant={selectedCategory === category ? 'default' : 'outline'}
+                     size="sm"
+                     onClick={() => setSelectedCategory(category)}
+                     className="whitespace-nowrap"
+                   >
+                     {category === 'all' ? 'Todas' : category}
+                   </Button>
+                 ))}
+               </div>
+
+               {/* Ordenamiento */}
+               <select
+                 value={sortBy}
+                 onChange={(e) => setSortBy(e.target.value)}
+                 className="px-4 py-2 bg-elegant-gray border border-gold-500/30 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-gold-500 transition-all duration-300"
+               >
+                 <option value="name" className="bg-elegant-gray">Ordenar por nombre</option>
+                 <option value="price-low" className="bg-elegant-gray">Precio: menor a mayor</option>
+                 <option value="price-high" className="bg-elegant-gray">Precio: mayor a mayor</option>
+               </select>
+
+               {/* Vista */}
+               <div className="flex border border-gold-500/30 rounded-lg overflow-hidden">
+                 <button
+                   onClick={() => setViewMode('grid')}
+                   className={`p-3 ${viewMode === 'grid' ? 'bg-gold-500 text-black' : 'bg-elegant-gray text-gold-400 hover:bg-gold-500/20'}`}
+                 >
+                   <Grid className="h-5 w-5" />
+                 </button>
+                 <button
+                   onClick={() => setViewMode('list')}
+                   className={`p-3 ${viewMode === 'list' ? 'bg-gold-500 text-black' : 'bg-elegant-gray text-gold-400 hover:bg-gold-500/20'}`}
+                 >
+                   <List className="h-5 w-5" />
+                 </button>
+               </div>
+             </div>
+           </div>
+         </div>
+
+        {/* Resultados */}
+        <div className="mb-4">
+          <p className="text-gold-400 text-lg">
+            Mostrando {sortedProducts.length} de {products.length} productos
+          </p>
+        </div>
 
       {/* Grid de productos */}
       {viewMode === 'grid' ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {sortedProducts.map((product) => (
-            <Card key={product.id} className="overflow-hidden">
-              <div className="aspect-square overflow-hidden">
+            <Card key={product.id} className="elegant-card hover:shadow-2xl hover:shadow-gold-500/20 transition-all duration-500 group hover:scale-105 gold-border overflow-hidden">
+              <div className="relative">
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-500"
                 />
+                <div className="absolute top-4 right-4 bg-gold-500 text-black px-3 py-1 rounded-full text-sm font-bold">
+                  EXCLUSIVO
+                </div>
               </div>
-              <div className="p-4">
-                <h3 className="font-semibold text-lg mb-2">{product.name}</h3>
-                <p className="text-gray-600 text-sm mb-3 line-clamp-2">{product.description}</p>
-                <div className="flex justify-between items-center mb-3">
-                  <span className="text-2xl font-bold text-primary">${product.price}</span>
-                  <span className="text-sm text-gray-500">Stock: {product.stock}</span>
+              <div className="p-6">
+                <h3 className="font-semibold text-xl mb-3 text-white">{product.name}</h3>
+                <p className="text-gray-300 text-sm mb-4 line-clamp-2">{product.description}</p>
+                <div className="flex justify-between items-center mb-4">
+                  <span className="text-3xl font-bold text-gold-400">${product.price}</span>
+                  <span className="text-sm text-gold-300">Stock: {product.stock}</span>
                 </div>
                 <Button 
-                  className="w-full flex items-center justify-center gap-2"
+                  className="w-full flex items-center justify-center gap-2 elegant-button"
                   onClick={() => handleAddToCart(product)}
                   disabled={addingToCart === product.id}
                   loading={addingToCart === product.id}
@@ -231,30 +285,38 @@ const Products = () => {
           ))}
         </div>
       ) : (
-        <div className="space-y-4">
+        <div className="space-y-6">
           {sortedProducts.map((product) => (
-            <Card key={product.id} className="flex">
-              <div className="w-32 h-32 flex-shrink-0">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="w-full h-full object-cover rounded-l-lg"
-                />
-              </div>
-              <div className="flex-1 p-4">
-                <h3 className="font-semibold text-lg mb-2">{product.name}</h3>
-                <p className="text-gray-600 mb-3">{product.description}</p>
-                <div className="flex justify-between items-center">
-                  <span className="text-2xl font-bold text-primary">${product.price}</span>
-                  <span className="text-sm text-gray-500">Stock: {product.stock}</span>
-                  <Button 
-                    onClick={() => handleAddToCart(product)}
-                    disabled={addingToCart === product.id}
-                    loading={addingToCart === product.id}
-                  >
-                    <ShoppingCart className="w-4 h-4 mr-1" />
-                    {addingToCart === product.id ? 'Agregando...' : 'Agregar al carrito'}
-                  </Button>
+            <Card key={product.id} className="elegant-card hover:shadow-2xl hover:shadow-gold-500/20 transition-all duration-500 group hover:scale-[1.02] gold-border overflow-hidden">
+              <div className="flex">
+                <div className="w-48 h-48 flex-shrink-0 relative">
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute top-4 right-4 bg-gold-500 text-black px-3 py-1 rounded-full text-sm font-bold">
+                    EXCLUSIVO
+                  </div>
+                </div>
+                <div className="flex-1 p-6">
+                  <h3 className="font-semibold text-2xl mb-3 text-white">{product.name}</h3>
+                  <p className="text-gray-300 mb-4 text-lg">{product.description}</p>
+                  <div className="flex justify-between items-center">
+                    <div className="flex flex-col">
+                      <span className="text-3xl font-bold text-gold-400">${product.price}</span>
+                      <span className="text-sm text-gold-300">Stock: {product.stock}</span>
+                    </div>
+                    <Button 
+                      onClick={() => handleAddToCart(product)}
+                      disabled={addingToCart === product.id}
+                      loading={addingToCart === product.id}
+                      className="elegant-button px-8 py-3"
+                    >
+                      <ShoppingCart className="w-5 h-5 mr-2" />
+                      {addingToCart === product.id ? 'Agregando...' : 'Agregar al carrito'}
+                    </Button>
+                  </div>
                 </div>
               </div>
             </Card>
@@ -262,11 +324,12 @@ const Products = () => {
         </div>
       )}
 
-      {sortedProducts.length === 0 && (
-        <div className="text-center py-12">
-          <p className="text-gray-500 text-lg">No se encontraron productos</p>
-        </div>
-      )}
+        {sortedProducts.length === 0 && (
+          <div className="text-center py-12">
+            <p className="text-gold-400 text-lg">No se encontraron productos</p>
+          </div>
+        )}
+      </div>
     </div>
   )
 }

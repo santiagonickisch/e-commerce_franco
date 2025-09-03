@@ -42,37 +42,49 @@ const Home = () => {
   ]
 
   const categories = [
-    { name: 'Electrónicos', icon: '📱', count: 150 },
-    { name: 'Ropa', icon: '👕', count: 200 },
-    { name: 'Hogar', icon: '🏠', count: 100 },
-    { name: 'Deportes', icon: '⚽', count: 75 },
-    { name: 'Libros', icon: '📚', count: 300 },
-    { name: 'Juguetes', icon: '🎮', count: 120 }
+    { name: 'Aceite', icon: '💧', count: 45 },
+    { name: 'Acondicionador', icon: '✨', count: 38 },
+    { name: 'Aerosol', icon: '🌪️', count: 52 },
+    { name: 'Cera', icon: '🕯️', count: 28 },
+    { name: 'Gel', icon: '🧴', count: 41 },
+    { name: 'Mascara', icon: '🎭', count: 33 },
+    { name: 'Oxidantes', icon: '⚗️', count: 19 },
+    { name: 'Shampoo', icon: '🧼', count: 67 },
+    { name: 'Spray', icon: '💨', count: 44 }
   ]
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-elegant-black gold-particles">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-purple-600 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+      <section className="relative bg-gradient-to-br from-elegant-black via-elegant-dark to-elegant-gray text-white overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-gold-500/5 to-transparent"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 relative z-10">
           <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Descubre Productos Increíbles
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 text-blue-100 max-w-3xl mx-auto">
-              La mejor selección de productos con precios increíbles. 
-              Envío rápido y garantía de satisfacción.
+            <div className="mb-8">
+              <h1 className="text-5xl md:text-7xl font-bold mb-6 logo-script">
+                Bienvenido a
+              </h1>
+              <div className="text-6xl md:text-8xl font-bold mb-6 logo-script">
+                franco
+              </div>
+              <div className="text-2xl md:text-3xl logo-elegant tracking-widest mb-8">
+                SALÓN EXCLUSIVO
+              </div>
+            </div>
+            <p className="text-xl md:text-2xl mb-12 text-gray-300 max-w-4xl mx-auto leading-relaxed">
+              Descubre una experiencia de compra única con productos exclusivos, 
+              servicio personalizado y la elegancia que mereces.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Link to="/products">
-                <Button size="lg" className="text-lg px-8 py-3">
-                  Ver Productos
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                <Button size="lg" className="elegant-button text-lg px-10 py-4 text-black font-bold">
+                  Explorar Productos
+                  <ArrowRight className="ml-2 h-6 w-6" />
                 </Button>
               </Link>
               <Link to="/register">
-                <Button variant="outline" size="lg" className="text-lg px-8 py-3 border-white text-white hover:bg-white hover:text-blue-600">
-                  Registrarse
+                <Button variant="outline" size="lg" className="text-lg px-10 py-4 border-gold-500 text-gold-400 hover:bg-gold-500 hover:text-black transition-all duration-300 gold-border">
+                  Únete Ahora
                 </Button>
               </Link>
             </div>
@@ -81,27 +93,27 @@ const Home = () => {
       </section>
 
       {/* Categories Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-20 bg-elegant-dark">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-white mb-6 logo-elegant">
               Explora por Categorías
             </h2>
-            <p className="text-lg text-gray-600">
-              Encuentra exactamente lo que buscas en nuestras categorías especializadas
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Descubre nuestras colecciones exclusivas cuidadosamente seleccionadas para ti
             </p>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8">
             {categories.map((category) => (
               <Link
                 key={category.name}
                 to={`/products?category=${category.name.toLowerCase()}`}
-                className="bg-white rounded-lg p-6 text-center hover:shadow-lg transition-shadow border"
+                className="elegant-card rounded-xl p-8 text-center hover:shadow-2xl hover:shadow-gold-500/20 transition-all duration-500 group hover:scale-105 gold-border"
               >
-                <div className="text-4xl mb-3">{category.icon}</div>
-                <h3 className="font-semibold text-gray-900 mb-1">{category.name}</h3>
-                <p className="text-sm text-gray-500">{category.count} productos</p>
+                <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">{category.icon}</div>
+                <h3 className="font-semibold text-white mb-2 text-lg">{category.name}</h3>
+                <p className="text-sm text-gold-400 font-medium">{category.count} productos exclusivos</p>
               </Link>
             ))}
           </div>
@@ -109,52 +121,55 @@ const Home = () => {
       </section>
 
       {/* Featured Products */}
-      <section className="py-16">
+      <section className="py-20 bg-elegant-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Productos Destacados
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-white mb-6 logo-elegant">
+              Productos Exclusivos
             </h2>
-            <p className="text-lg text-gray-600">
-              Los productos más populares y mejor valorados por nuestros clientes
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Descubre nuestra selección premium de productos únicos y de alta calidad
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {featuredProducts.map((product) => (
-              <Card key={product.id} className="hover:shadow-lg transition-shadow">
-                <CardHeader className="p-0">
+              <Card key={product.id} className="elegant-card hover:shadow-2xl hover:shadow-gold-500/20 transition-all duration-500 group hover:scale-105 gold-border overflow-hidden">
+                <CardHeader className="p-0 relative">
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="w-full h-48 object-cover rounded-t-lg"
+                    className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-500"
                   />
+                  <div className="absolute top-4 right-4 bg-gold-500 text-black px-3 py-1 rounded-full text-sm font-bold">
+                    EXCLUSIVO
+                  </div>
                 </CardHeader>
-                <CardContent className="p-4">
-                  <h3 className="font-semibold text-lg mb-2">{product.name}</h3>
-                  <div className="flex items-center mb-2">
+                <CardContent className="p-6">
+                  <h3 className="font-semibold text-xl mb-3 text-white">{product.name}</h3>
+                  <div className="flex items-center mb-4">
                     <div className="flex items-center">
                       {[...Array(5)].map((_, i) => (
                         <Star
                           key={i}
-                          className={`h-4 w-4 ${
+                          className={`h-5 w-5 ${
                             i < Math.floor(product.rating)
-                              ? 'text-yellow-400 fill-current'
-                              : 'text-gray-300'
+                              ? 'text-gold-400 fill-current'
+                              : 'text-gray-600'
                           }`}
                         />
                       ))}
                     </div>
-                    <span className="text-sm text-gray-500 ml-2">
-                      ({product.reviews})
+                    <span className="text-sm text-gray-400 ml-2">
+                      ({product.reviews} reseñas)
                     </span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-2xl font-bold text-primary">
+                    <span className="text-3xl font-bold text-gold-400">
                       ${product.price}
                     </span>
-                    <Button size="sm">
-                      <ShoppingCart className="h-4 w-4 mr-1" />
+                    <Button size="sm" className="elegant-button">
+                      <ShoppingCart className="h-4 w-4 mr-2" />
                       Agregar
                     </Button>
                   </div>
@@ -163,11 +178,11 @@ const Home = () => {
             ))}
           </div>
           
-          <div className="text-center mt-12">
+          <div className="text-center mt-16">
             <Link to="/products">
-              <Button size="lg">
+              <Button size="lg" className="elegant-button text-lg px-12 py-4">
                 Ver Todos los Productos
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <ArrowRight className="ml-3 h-6 w-6" />
               </Button>
             </Link>
           </div>
@@ -175,45 +190,45 @@ const Home = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-20 bg-elegant-dark">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              ¿Por qué elegirnos?
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-white mb-6 logo-elegant">
+              ¿Por qué elegir Franco?
             </h2>
-            <p className="text-lg text-gray-600">
-              Ofrecemos la mejor experiencia de compra online
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Ofrecemos una experiencia de compra exclusiva y personalizada
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="bg-primary text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">🚚</span>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div className="text-center group">
+              <div className="bg-gradient-to-br from-gold-500 to-gold-600 text-black rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6 gold-glow group-hover:scale-110 transition-transform duration-300">
+                <span className="text-3xl">🚚</span>
               </div>
-              <h3 className="text-xl font-semibold mb-2">Envío Gratis</h3>
-              <p className="text-gray-600">
-                Envío gratis en pedidos superiores a $50
+              <h3 className="text-2xl font-semibold mb-4 text-white">Envío Premium</h3>
+              <p className="text-gray-300 text-lg leading-relaxed">
+                Envío express gratuito en pedidos superiores a $100 con seguimiento en tiempo real
               </p>
             </div>
             
-            <div className="text-center">
-              <div className="bg-primary text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">🛡️</span>
+            <div className="text-center group">
+              <div className="bg-gradient-to-br from-gold-500 to-gold-600 text-black rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6 gold-glow group-hover:scale-110 transition-transform duration-300">
+                <span className="text-3xl">🛡️</span>
               </div>
-              <h3 className="text-xl font-semibold mb-2">Garantía</h3>
-              <p className="text-gray-600">
-                30 días de garantía en todos los productos
+              <h3 className="text-2xl font-semibold mb-4 text-white">Garantía Exclusiva</h3>
+              <p className="text-gray-300 text-lg leading-relaxed">
+                60 días de garantía extendida en todos nuestros productos premium
               </p>
             </div>
             
-            <div className="text-center">
-              <div className="bg-primary text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">💬</span>
+            <div className="text-center group">
+              <div className="bg-gradient-to-br from-gold-500 to-gold-600 text-black rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6 gold-glow group-hover:scale-110 transition-transform duration-300">
+                <span className="text-3xl">💎</span>
               </div>
-              <h3 className="text-xl font-semibold mb-2">Soporte 24/7</h3>
-              <p className="text-gray-600">
-                Atención al cliente disponible todo el día
+              <h3 className="text-2xl font-semibold mb-4 text-white">Servicio VIP</h3>
+              <p className="text-gray-300 text-lg leading-relaxed">
+                Asesor personal disponible 24/7 para brindarte la mejor experiencia
               </p>
             </div>
           </div>
