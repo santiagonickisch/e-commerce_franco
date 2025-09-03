@@ -129,7 +129,7 @@ const Orders = () => {
   }
 
   return (
-    <div className="min-h-screen bg-elegant-black gold-particles">
+    <div className="min-h-screen bg-elegant-black gray-particles">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
         <div className="mb-12 text-center">

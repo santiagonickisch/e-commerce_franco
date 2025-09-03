@@ -13,7 +13,7 @@ const Button = React.forwardRef(({
 }, ref) => {
   const Comp = asChild ? "span" : "button"
   
-  const baseClasses = "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none"
+  const baseClasses = "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none font-roboto"
   
   const variants = {
     default: "bg-gold-500 text-black hover:bg-gold-400 focus:ring-gold-500 font-semibold",

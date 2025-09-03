@@ -40,7 +40,7 @@ const Header = () => {
   }
 
   return (
-    <header className="bg-elegant-black shadow-lg border-b border-gold-500/20 sticky top-0 z-50 gold-particles">
+          <header className="bg-elegant-black shadow-lg border-b border-gray-500/20 sticky top-0 z-50 gray-particles">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
@@ -63,7 +63,7 @@ const Header = () => {
               <Link
                 key={item.name}
                 to={item.href}
-                className="text-white hover:text-gold-400 px-4 py-2 rounded-md text-sm font-medium transition-all duration-300 hover:bg-gold-500/10 hover:shadow-lg hover:shadow-gold-500/20"
+                className="text-white hover:text-gray-400 px-4 py-2 rounded-md text-sm font-medium transition-all duration-300 hover:bg-gray-500/10 hover:shadow-lg hover:shadow-gray-500/20"
               >
                 {item.name}
               </Link>
@@ -75,11 +75,11 @@ const Header = () => {
             {/* Cart */}
             <Link
               to="/cart"
-              className="relative p-2 text-white hover:text-gold-400 transition-all duration-300 hover:bg-gold-500/10 rounded-lg"
+              className="relative p-2 text-white hover:text-gray-400 transition-all duration-300 hover:bg-gray-500/10 rounded-lg"
             >
               <ShoppingCart className="h-6 w-6" />
               {cartItemsCount > 0 && (
-                <span className="absolute -top-1 -right-1 bg-gold-500 text-black text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold gold-glow">
+                <span className="absolute -top-1 -right-1 bg-gray-500 text-black text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold gold-glow">
                   {cartItemsCount}
                 </span>
               )}
@@ -87,10 +87,10 @@ const Header = () => {
 
             {/* User Menu */}
             {isAuthenticated ? (
-              <div className="relative">
+              <div className="relative" style={{ zIndex: 10000 }}>
                 <button
                   onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
-                  className="flex items-center space-x-2 p-2 rounded-lg hover:bg-gold-500/10 transition-all duration-300 text-white hover:text-gold-400"
+                  className="flex items-center space-x-2 p-2 rounded-lg hover:bg-gray-500/10 transition-all duration-300 text-white hover:text-gray-400"
                 >
                   <User className="h-5 w-5" />
                   <span className="hidden sm:block text-sm font-medium">
@@ -99,28 +99,40 @@ const Header = () => {
                 </button>
 
                 {isUserMenuOpen && (
-                  <div className="absolute right-0 mt-2 w-48 elegant-card rounded-lg shadow-xl py-1 z-50 gold-border">
+                  <div 
+                    className="fixed right-4 top-20 w-48 bg-gray-800 border-2 border-gray-600 rounded-lg shadow-2xl py-2"
+                    style={{ 
+                      backgroundColor: '#1f2937',
+                      border: '2px solid #4b5563',
+                      boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.8)',
+                      zIndex: 10001,
+                      position: 'fixed'
+                    }}
+                  >
                     <Link
                       to="/profile"
-                      className="flex items-center px-4 py-2 text-sm text-white hover:bg-gold-500/10 hover:text-gold-400 transition-colors"
+                      className="flex items-center px-4 py-3 text-sm text-white hover:bg-gray-700 transition-colors border-b border-gray-600"
                       onClick={() => setIsUserMenuOpen(false)}
+                      style={{ color: 'white', fontFamily: 'Roboto, sans-serif' }}
                     >
-                      <Settings className="h-4 w-4 mr-2" />
+                      <Settings className="h-4 w-4 mr-3" style={{ color: '#d1d5db' }} />
                       Perfil
                     </Link>
                     <Link
                       to="/orders"
-                      className="flex items-center px-4 py-2 text-sm text-white hover:bg-gold-500/10 hover:text-gold-400 transition-colors"
+                      className="flex items-center px-4 py-3 text-sm text-white hover:bg-gray-700 transition-colors border-b border-gray-600"
                       onClick={() => setIsUserMenuOpen(false)}
+                      style={{ color: 'white', fontFamily: 'Roboto, sans-serif' }}
                     >
-                      <ShoppingCart className="h-4 w-4 mr-2" />
+                      <ShoppingCart className="h-4 w-4 mr-3" style={{ color: '#d1d5db' }} />
                       Mis Pedidos
                     </Link>
                     <button
                       onClick={handleLogout}
-                      className="flex items-center w-full px-4 py-2 text-sm text-white hover:bg-gold-500/10 hover:text-gold-400 transition-colors"
+                      className="flex items-center w-full px-4 py-3 text-sm text-white hover:bg-red-600 transition-colors"
+                      style={{ color: 'white', fontFamily: 'Roboto, sans-serif' }}
                     >
-                      <LogOut className="h-4 w-4 mr-2" />
+                      <LogOut className="h-4 w-4 mr-3" style={{ color: '#d1d5db' }} />
                       Cerrar Sesión
                     </button>
                   </div>
@@ -129,7 +141,7 @@ const Header = () => {
             ) : (
               <div className="flex items-center space-x-2">
                 <Link to="/login">
-                  <Button variant="ghost" size="sm" className="text-white hover:text-gold-400 hover:bg-gold-500/10">
+                  <Button variant="ghost" size="sm" className="text-white hover:text-gray-400 hover:bg-gray-500/10">
                     Iniciar Sesión
                   </Button>
                 </Link>
@@ -144,7 +156,7 @@ const Header = () => {
             {/* Mobile menu button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden p-2 rounded-lg text-white hover:text-gold-400 hover:bg-gold-500/10 transition-all duration-300"
+              className="md:hidden p-2 rounded-lg text-white hover:text-gray-400 hover:bg-gray-500/10 transition-all duration-300"
             >
               {isMenuOpen ? (
                 <X className="h-6 w-6" />
@@ -158,12 +170,12 @@ const Header = () => {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t border-gold-500/20">
+            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t border-gray-500/20">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
                   to={item.href}
-                  className="text-white hover:text-gold-400 block px-3 py-2 rounded-md text-base font-medium hover:bg-gold-500/10 transition-all duration-300"
+                  className="text-white hover:text-gray-400 block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-500/10 transition-all duration-300"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
@@ -173,14 +185,14 @@ const Header = () => {
                 <>
                   <Link
                     to="/login"
-                    className="text-white hover:text-gold-400 block px-3 py-2 rounded-md text-base font-medium hover:bg-gold-500/10 transition-all duration-300"
+                    className="text-white hover:text-gray-400 block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-500/10 transition-all duration-300"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Iniciar Sesión
                   </Link>
                   <Link
                     to="/register"
-                    className="text-white hover:text-gold-400 block px-3 py-2 rounded-md text-base font-medium hover:bg-gold-500/10 transition-all duration-300"
+                    className="text-white hover:text-gray-400 block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-500/10 transition-all duration-300"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Registrarse

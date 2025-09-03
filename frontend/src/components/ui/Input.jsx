@@ -5,7 +5,7 @@ const Input = React.forwardRef(({ className, type, error, label, icon, endIcon, 
   return (
     <div className="space-y-2">
       {label && (
-        <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+        <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 font-roboto">
           {label}
         </label>
       )}
@@ -18,7 +18,7 @@ const Input = React.forwardRef(({ className, type, error, label, icon, endIcon, 
         <input
           type={type}
           className={cn(
-            "flex h-10 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:cursor-not-allowed disabled:opacity-50",
+            "flex h-10 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:cursor-not-allowed disabled:opacity-50 font-roboto",
             icon && "pl-10",
             endIcon && "pr-10",
             error && "border-red-500 focus:ring-red-500",
@@ -34,7 +34,7 @@ const Input = React.forwardRef(({ className, type, error, label, icon, endIcon, 
         )}
       </div>
       {error && (
-        <p className="mt-1 text-sm text-red-600">{error}</p>
+        <p className="mt-1 text-sm text-red-600 font-roboto">{error}</p>
       )}
     </div>
   )

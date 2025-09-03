@@ -54,7 +54,7 @@ const Home = () => {
   ]
 
   return (
-    <div className="min-h-screen bg-elegant-black gold-particles">
+    <div className="min-h-screen bg-elegant-black gray-particles">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-elegant-black via-elegant-dark to-elegant-gray text-white overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-gold-500/5 to-transparent"></div>
@@ -83,7 +83,7 @@ const Home = () => {
                 </Button>
               </Link>
               <Link to="/register">
-                <Button variant="outline" size="lg" className="text-lg px-10 py-4 border-gold-500 text-gold-400 hover:bg-gold-500 hover:text-black transition-all duration-300 gold-border">
+                <Button variant="outline" size="lg" className="text-lg px-10 py-4 border-gray-500 text-gray-400 hover:bg-gray-500 hover:text-black transition-all duration-300 gold-border">
                   Únete Ahora
                 </Button>
               </Link>
@@ -109,11 +109,11 @@ const Home = () => {
               <Link
                 key={category.name}
                 to={`/products?category=${category.name.toLowerCase()}`}
-                className="elegant-card rounded-xl p-8 text-center hover:shadow-2xl hover:shadow-gold-500/20 transition-all duration-500 group hover:scale-105 gold-border"
+                className="elegant-card rounded-xl p-8 text-center hover:shadow-2xl hover:shadow-gray-500/20 transition-all duration-500 group hover:scale-105 gold-border"
               >
                 <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">{category.icon}</div>
                 <h3 className="font-semibold text-white mb-2 text-lg">{category.name}</h3>
-                <p className="text-sm text-gold-400 font-medium">{category.count} productos exclusivos</p>
+                <p className="text-sm text-gray-400 font-medium">{category.count} productos exclusivos</p>
               </Link>
             ))}
           </div>
@@ -134,14 +134,14 @@ const Home = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {featuredProducts.map((product) => (
-              <Card key={product.id} className="elegant-card hover:shadow-2xl hover:shadow-gold-500/20 transition-all duration-500 group hover:scale-105 gold-border overflow-hidden">
+              <Card key={product.id} className="elegant-card hover:shadow-2xl hover:shadow-gray-500/20 transition-all duration-500 group hover:scale-105 gold-border overflow-hidden">
                 <CardHeader className="p-0 relative">
                   <img
                     src={product.image}
                     alt={product.name}
                     className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-500"
                   />
-                  <div className="absolute top-4 right-4 bg-gold-500 text-black px-3 py-1 rounded-full text-sm font-bold">
+                  <div className="absolute top-4 right-4 bg-gray-500 text-black px-3 py-1 rounded-full text-sm font-bold">
                     EXCLUSIVO
                   </div>
                 </CardHeader>
@@ -154,7 +154,7 @@ const Home = () => {
                           key={i}
                           className={`h-5 w-5 ${
                             i < Math.floor(product.rating)
-                              ? 'text-gold-400 fill-current'
+                              ? 'text-gray-400 fill-current'
                               : 'text-gray-600'
                           }`}
                         />
@@ -165,7 +165,7 @@ const Home = () => {
                     </span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-3xl font-bold text-gold-400">
+                    <span className="text-3xl font-bold text-gray-400">
                       ${product.price}
                     </span>
                     <Button size="sm" className="elegant-button">

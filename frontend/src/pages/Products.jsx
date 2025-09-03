@@ -169,27 +169,27 @@ const Products = () => {
   }
 
   return (
-    <div className="min-h-screen bg-elegant-black gold-particles">
+    <div className="min-h-screen bg-elegant-black gray-particles">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-white mb-2 logo-elegant">Productos Estéticos</h1>
-          <p className="text-gold-400 text-lg">Descubre nuestra amplia selección de productos profesionales para peluquería</p>
+          <p className="text-gray-400 text-lg">Descubre nuestra amplia selección de productos profesionales para peluquería</p>
         </div>
 
                  {/* Filtros y búsqueda */}
-         <div className="elegant-card rounded-lg shadow-lg p-6 mb-8 gold-border">
+         <div className="elegant-card rounded-lg shadow-lg p-6 mb-8 border border-gray-500/30">
            <div className="flex flex-col gap-6">
              {/* Primera fila: Búsqueda */}
              <div className="w-full">
                <div className="relative max-w-md">
-                 <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gold-400 h-6 w-6" />
+                 <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 h-6 w-6" />
                  <input
                    type="text"
                    placeholder="Buscar productos..."
                    value={searchTerm}
                    onChange={(e) => setSearchTerm(e.target.value)}
-                   className="w-full h-16 pl-14 pr-6 bg-elegant-gray border border-gold-500/30 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-gold-500 transition-all duration-300 text-lg font-medium"
+                   className="w-full h-16 pl-14 pr-6 bg-elegant-gray border border-gray-500/30 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-gray-500 transition-all duration-300 text-lg font-medium"
                    style={{ color: 'white' }}
                  />
                </div>
@@ -216,7 +216,7 @@ const Products = () => {
                <select
                  value={sortBy}
                  onChange={(e) => setSortBy(e.target.value)}
-                 className="px-4 py-2 bg-elegant-gray border border-gold-500/30 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-gold-500 transition-all duration-300"
+                 className="px-4 py-2 bg-elegant-gray border border-gray-500/30 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-gray-500 transition-all duration-300"
                >
                  <option value="name" className="bg-elegant-gray">Ordenar por nombre</option>
                  <option value="price-low" className="bg-elegant-gray">Precio: menor a mayor</option>
@@ -224,16 +224,16 @@ const Products = () => {
                </select>
 
                {/* Vista */}
-               <div className="flex border border-gold-500/30 rounded-lg overflow-hidden">
+               <div className="flex border border-gray-500/30 rounded-lg overflow-hidden">
                  <button
                    onClick={() => setViewMode('grid')}
-                   className={`p-3 ${viewMode === 'grid' ? 'bg-gold-500 text-black' : 'bg-elegant-gray text-gold-400 hover:bg-gold-500/20'}`}
+                   className={`p-3 ${viewMode === 'grid' ? 'bg-gold-500 text-black' : 'bg-elegant-gray text-gray-400 hover:bg-gray-500/20'}`}
                  >
                    <Grid className="h-5 w-5" />
                  </button>
                  <button
                    onClick={() => setViewMode('list')}
-                   className={`p-3 ${viewMode === 'list' ? 'bg-gold-500 text-black' : 'bg-elegant-gray text-gold-400 hover:bg-gold-500/20'}`}
+                   className={`p-3 ${viewMode === 'list' ? 'bg-gold-500 text-black' : 'bg-elegant-gray text-gray-400 hover:bg-gray-500/20'}`}
                  >
                    <List className="h-5 w-5" />
                  </button>
@@ -244,7 +244,7 @@ const Products = () => {
 
         {/* Resultados */}
         <div className="mb-4">
-          <p className="text-gold-400 text-lg">
+          <p className="text-gray-400 text-lg">
             Mostrando {sortedProducts.length} de {products.length} productos
           </p>
         </div>
@@ -253,14 +253,14 @@ const Products = () => {
       {viewMode === 'grid' ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {sortedProducts.map((product) => (
-            <Card key={product.id} className="elegant-card hover:shadow-2xl hover:shadow-gold-500/20 transition-all duration-500 group hover:scale-105 gold-border overflow-hidden">
+            <Card key={product.id} className="elegant-card hover:shadow-2xl hover:shadow-gray-500/20 transition-all duration-500 group hover:scale-105 gold-border overflow-hidden">
               <div className="relative">
                 <img
                   src={product.image}
                   alt={product.name}
                   className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-500"
                 />
-                <div className="absolute top-4 right-4 bg-gold-500 text-black px-3 py-1 rounded-full text-sm font-bold">
+                <div className="absolute top-4 right-4 bg-gray-500 text-black px-3 py-1 rounded-full text-sm font-bold">
                   EXCLUSIVO
                 </div>
               </div>
@@ -268,8 +268,8 @@ const Products = () => {
                 <h3 className="font-semibold text-xl mb-3 text-white">{product.name}</h3>
                 <p className="text-gray-300 text-sm mb-4 line-clamp-2">{product.description}</p>
                 <div className="flex justify-between items-center mb-4">
-                  <span className="text-3xl font-bold text-gold-400">${product.price}</span>
-                  <span className="text-sm text-gold-300">Stock: {product.stock}</span>
+                  <span className="text-3xl font-bold text-gray-400">${product.price}</span>
+                  <span className="text-sm text-gray-300">Stock: {product.stock}</span>
                 </div>
                 <Button 
                   className="w-full flex items-center justify-center gap-2 elegant-button"
@@ -287,7 +287,7 @@ const Products = () => {
       ) : (
         <div className="space-y-6">
           {sortedProducts.map((product) => (
-            <Card key={product.id} className="elegant-card hover:shadow-2xl hover:shadow-gold-500/20 transition-all duration-500 group hover:scale-[1.02] gold-border overflow-hidden">
+            <Card key={product.id} className="elegant-card hover:shadow-2xl hover:shadow-gray-500/20 transition-all duration-500 group hover:scale-[1.02] gold-border overflow-hidden">
               <div className="flex">
                 <div className="w-48 h-48 flex-shrink-0 relative">
                   <img
@@ -295,7 +295,7 @@ const Products = () => {
                     alt={product.name}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute top-4 right-4 bg-gold-500 text-black px-3 py-1 rounded-full text-sm font-bold">
+                  <div className="absolute top-4 right-4 bg-gray-500 text-black px-3 py-1 rounded-full text-sm font-bold">
                     EXCLUSIVO
                   </div>
                 </div>
@@ -304,8 +304,8 @@ const Products = () => {
                   <p className="text-gray-300 mb-4 text-lg">{product.description}</p>
                   <div className="flex justify-between items-center">
                     <div className="flex flex-col">
-                      <span className="text-3xl font-bold text-gold-400">${product.price}</span>
-                      <span className="text-sm text-gold-300">Stock: {product.stock}</span>
+                      <span className="text-3xl font-bold text-gray-400">${product.price}</span>
+                      <span className="text-sm text-gray-300">Stock: {product.stock}</span>
                     </div>
                     <Button 
                       onClick={() => handleAddToCart(product)}
@@ -326,7 +326,7 @@ const Products = () => {
 
         {sortedProducts.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-gold-400 text-lg">No se encontraron productos</p>
+            <p className="text-gray-400 text-lg">No se encontraron productos</p>
           </div>
         )}
       </div>
