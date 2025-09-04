@@ -51,7 +51,7 @@ const Checkout = () => {
           <div className="w-24 h-24 bg-gold-500/20 rounded-full flex items-center justify-center mx-auto mb-6 gold-glow">
             <CreditCard className="w-12 h-12 text-gold-400" />
           </div>
-          <h1 className="text-5xl font-bold text-white mb-4 logo-elegant">Checkout</h1>
+          <h1 className="text-5xl font-bold text-white mb-4 font-roboto">Checkout</h1>
           <p className="text-gold-400 text-xl">Completa tu información para finalizar la compra</p>
         </div>
 
@@ -84,7 +84,7 @@ const Checkout = () => {
               <form onSubmit={handleSubmit} className="space-y-8">
                 {step === 1 && (
                   <>
-                    <h2 className="text-2xl font-semibold text-white mb-6 logo-elegant">Información de contacto</h2>
+                    <h2 className="text-2xl font-semibold text-white mb-6 font-roboto">Información de contacto</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
                         <label className="block text-gold-300 text-sm font-medium mb-2">Nombre</label>
@@ -156,7 +156,7 @@ const Checkout = () => {
 
                 {step === 2 && (
                   <>
-                    <h2 className="text-2xl font-semibold text-white mb-6 logo-elegant">Dirección de envío</h2>
+                    <h2 className="text-2xl font-semibold text-white mb-6 font-roboto">Dirección de envío</h2>
                     <div>
                       <label className="block text-gold-300 text-sm font-medium mb-2">Dirección</label>
                       <div className="relative">
@@ -228,7 +228,7 @@ const Checkout = () => {
 
                 {step === 3 && (
                   <>
-                    <h2 className="text-2xl font-semibold text-white mb-6 logo-elegant">Información de pago</h2>
+                    <h2 className="text-2xl font-semibold text-white mb-6 font-roboto">Información de pago</h2>
                     <div>
                       <label className="block text-gold-300 text-sm font-medium mb-2">Número de tarjeta</label>
                       <div className="relative">
@@ -304,7 +304,7 @@ const Checkout = () => {
           {/* Resumen del pedido */}
           <div className="lg:col-span-1">
             <Card className="elegant-card gold-border">
-              <h2 className="text-2xl font-semibold text-white mb-8 logo-elegant">Resumen del pedido</h2>
+              <h2 className="text-2xl font-semibold text-white mb-8 font-roboto">Resumen del pedido</h2>
               
               {/* Productos */}
               <div className="space-y-6 mb-8">

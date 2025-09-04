@@ -136,7 +136,7 @@ const Orders = () => {
           <div className="w-24 h-24 bg-gold-500/20 rounded-full flex items-center justify-center mx-auto mb-6 gold-glow">
             <ShoppingBag className="w-12 h-12 text-gold-400" />
           </div>
-          <h1 className="text-5xl font-bold text-white mb-4 logo-elegant">Mis Pedidos</h1>
+          <h1 className="text-5xl font-bold text-white mb-4 font-roboto">Mis Pedidos</h1>
           <p className="text-gold-400 text-xl">Revisa el estado de tus pedidos y el historial de compras</p>
         </div>
 
@@ -146,7 +146,7 @@ const Orders = () => {
               <div className="w-24 h-24 bg-gold-500/20 rounded-full flex items-center justify-center mx-auto mb-6 gold-glow">
                 <Package className="w-12 h-12 text-gold-400" />
               </div>
-              <h2 className="text-3xl font-bold text-white mb-4 logo-elegant">No tienes pedidos aún</h2>
+              <h2 className="text-3xl font-bold text-white mb-4 font-roboto">No tienes pedidos aún</h2>
               <p className="text-gold-400 text-lg mb-8">Comienza a comprar para ver tus pedidos aquí.</p>
               <Link to="/products">
                 <Button className="elegant-button">
@@ -165,7 +165,7 @@ const Orders = () => {
                   {/* Header del pedido */}
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 mb-8 pb-6 border-b border-gold-500/30">
                     <div>
-                      <h3 className="text-2xl font-semibold text-white logo-elegant">Pedido {order.id}</h3>
+                      <h3 className="text-2xl font-semibold text-white font-roboto">Pedido {order.id}</h3>
                       <p className="text-gold-400 text-lg">
                         Realizado el {new Date(order.date).toLocaleDateString('es-ES')}
                       </p>

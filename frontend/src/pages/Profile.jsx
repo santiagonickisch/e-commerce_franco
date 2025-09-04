@@ -53,7 +53,7 @@ const Profile = () => {
           <div className="w-24 h-24 bg-gold-500/20 rounded-full flex items-center justify-center mx-auto mb-6 gold-glow">
             <User className="w-12 h-12 text-gold-400" />
           </div>
-          <h1 className="text-5xl font-bold text-white mb-4 logo-elegant">Mi Perfil</h1>
+          <h1 className="text-5xl font-bold text-white mb-4 font-roboto">Mi Perfil</h1>
           <p className="text-gold-400 text-xl">Gestiona tu información personal y preferencias</p>
         </div>
 
@@ -62,7 +62,7 @@ const Profile = () => {
           <div className="lg:col-span-2">
             <Card className="elegant-card gold-border">
               <div className="flex justify-between items-center mb-8">
-                <h2 className="text-2xl font-semibold text-white logo-elegant">Información personal</h2>
+                <h2 className="text-2xl font-semibold text-white font-roboto">Información personal</h2>
                 {!isEditing ? (
                   <Button
                     variant="outline"
@@ -214,7 +214,7 @@ const Profile = () => {
           {/* Sidebar */}
           <div className="lg:col-span-1 space-y-6">
             <Card className="elegant-card gold-border">
-              <h3 className="text-xl font-semibold text-white mb-6 logo-elegant">Información de la cuenta</h3>
+              <h3 className="text-xl font-semibold text-white mb-6 font-roboto">Información de la cuenta</h3>
               <div className="space-y-6">
                 <div className="flex items-center justify-between p-4 bg-elegant-gray rounded-lg">
                   <div>
@@ -249,7 +249,7 @@ const Profile = () => {
             </Card>
 
             <Card className="elegant-card gold-border">
-              <h3 className="text-xl font-semibold text-white mb-6 logo-elegant">Acciones rápidas</h3>
+              <h3 className="text-xl font-semibold text-white mb-6 font-roboto">Acciones rápidas</h3>
               <div className="space-y-4">
                 <Button variant="outline" className="w-full justify-start border-gold-500 text-gold-400 hover:bg-gold-500 hover:text-black transition-all duration-300">
                   <Lock className="w-4 h-4 mr-2" />

@@ -37,7 +37,7 @@ const Cart = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
               </svg>
             </div>
-            <h2 className="text-3xl font-bold text-white mb-2 logo-elegant">Tu carrito está vacío</h2>
+            <h2 className="text-3xl font-bold text-white mb-2 font-roboto">Tu carrito está vacío</h2>
             <p className="text-gold-400 text-lg mb-8">Parece que aún no has agregado productos a tu carrito.</p>
             <Link to="/products">
               <Button className="elegant-button">
@@ -56,7 +56,7 @@ const Cart = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-white mb-2 logo-elegant">Carrito de compras</h1>
+          <h1 className="text-4xl font-bold text-white mb-2 font-roboto">Carrito de compras</h1>
           <p className="text-gold-400 text-lg">Revisa tus productos antes de finalizar la compra</p>
         </div>
 
@@ -129,7 +129,7 @@ const Cart = () => {
           {/* Resumen del pedido */}
           <div className="lg:col-span-1">
             <Card className="elegant-card gold-border">
-              <h2 className="text-2xl font-semibold text-white mb-6 logo-elegant">Resumen del pedido</h2>
+              <h2 className="text-2xl font-semibold text-white mb-6 font-roboto">Resumen del pedido</h2>
               
               <div className="space-y-4 mb-6">
                 <div className="flex justify-between">
